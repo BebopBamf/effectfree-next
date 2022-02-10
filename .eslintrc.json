@@ -1,3 +1,12 @@
 {
-  "extends": "next/core-web-vitals"
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "project": "./tsconfig.json"
+    },
+    "extends": ["airbnb", "airbnb/hooks",  "airbnb-typescript", "prettier","next/core-web-vitals"],
+    "plugins": ["@typescript-eslint"],
+    "rules": {
+        "react/function-component-definition": [2, { "namedComponents": "arrow-function", "unnaamedComponents": "arrow-function" }]
+        
+    }
 }
