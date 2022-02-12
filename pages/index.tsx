@@ -3,6 +3,7 @@ import Head from 'next/head';
 
 import Navbar from '../components/navbar';
 import Banner from '../components/landing/banner';
+import About from '../components/landing/about';
 
 const Home: NextPage = () => (
   <>
@@ -15,6 +16,7 @@ const Home: NextPage = () => (
     <div className="home">
       <Navbar />
       <Banner />
+      <About />
     </div>
   </>
 );

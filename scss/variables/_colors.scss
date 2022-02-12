@@ -6,9 +6,15 @@
 $teal: #1abc9c;
 $dark-blue: #2c3e50;
 
+$space-cadet: #202c59;
+$deep-champagne: #ffd195;
+$polished-pine: #5d9b84;
+$raw-sienna: #de7e44;
+$english-violet: #41354d;
+
 //- Override primary color
-$primary: $teal;
-$secondary: $dark-blue;
+$primary: $raw-sienna;
+$secondary: $space-cadet;
 
 // The contrast ratio to reach against white, to determine if color changes from "light" to "dark". Acceptable values for WCAG 2.0 are 3, 4.5 and 7.
 // See https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast

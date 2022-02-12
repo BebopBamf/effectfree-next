@@ -22,7 +22,7 @@
 
 @include media-breakpoint-up(lg) {
     .masthead {
-        padding-top: calc(6rem + 104px);
+        padding-top: 104px;
         padding-bottom: 6rem;
 
         .masthead-heading {
@@ -33,6 +33,5 @@
         .masthead-subheading {
             font-size: 1.5rem;
         }
-
     }
 }
