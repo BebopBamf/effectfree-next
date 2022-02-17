@@ -7,7 +7,6 @@
     "build": "next build",
     "start": "next start",
     "sanity": "cd studio && sanity start",
-    "codegen": "sanity-codegen",
     "lint": "next lint"
   },
   "dependencies": {
@@ -34,7 +33,6 @@
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "prettier": "^2.5.1",
-    "sanity-codegen": "^0.9.8",
     "sass": "^1.49.7",
     "typescript": "4.5.5"
   }
