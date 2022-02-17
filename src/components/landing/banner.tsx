@@ -1,26 +1,38 @@
-import { motion } from 'framer-motion';
 import Container from 'react-bootstrap/Container';
-import type { Author } from 'effectfreesanity/schema';
+import type { Author } from '@sanity/schema';
 
 type BannerProps = {
-  author: Author;
+  authorName: Author['name'];
+  description: Author['description'];
+  slug: Author['slug'];
 };
 
 const Banner = (props: BannerProps) => {
-  const { author } = props;
+  const { authorName, description, slug } = props;
 
   return (
     <header className="masthead bg-primary text-white text-center">
       <Container className="d-flex align-items-center flex-column">
         <h1 className="masthead-heading text-uppercase mb-0">effect free</h1>
+        <h3 className="masthead-subheading mb-0">
+          A website of a functional programmer somewhere in an upside down
+          country
+        </h3>
 
-        <Container className="bg-secondary" as={motion.div}>
-          <h3 className="masthead-subheading">
-            A website of a functional programmer somewhere in an upside down
-            country
-          </h3>
-          <p>{`Created by ${author.name}`}</p>
-        </Container>
+        <div className="divider-custom divider-light">
+          <div className="divider-custom-line" />
+          <div className="divider-custom-line" />
+        </div>
+
+        <p className="masthead-subheading font-weight-light mb-0">{`Created by ${authorName}`}</p>
+        <p className="masthead-subheading font-weight-light mb-0">
+          {`@${slug.current}`}
+        </p>
+        <p className="masthead-subheading mb-0">
+          {description
+            ? description.reduce((str, des) => `${str} - ${des}`)
+            : ''}
+        </p>
       </Container>
     </header>
   );
