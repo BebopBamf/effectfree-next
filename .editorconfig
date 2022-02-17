@@ -1,5 +1,15 @@
 root = true
 
+[*.js]
+end_of_line = lf
+indent_style = space
+indent_size = 2
+
+[*.jsx]
+end_of_line = lf
+indent_style = space
+indent_size = 2
+
 [*.ts]
 end_of_line = lf
 indent_style = space
