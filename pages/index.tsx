@@ -1,14 +1,13 @@
-import { useState } from 'react';
-import type { NextPage } from 'next';
+import type { NextPage, GetStaticProps } from 'next';
 import Head from 'next/head';
 import { groq } from 'next-sanity';
 
-import { urlFor } from '../lib/sanity';
-import { getClient } from '../lib/sanity.server';
+import { getClient } from '@lib/sanity.server';
+import { urlFor } from '@lib/sanity';
 
-import Navbar from '../components/navbar';
-import Banner from '../components/landing/banner';
-import About from '../components/landing/about';
+import Navbar from '@components/navbar';
+import Banner from '@components/landing/banner';
+import About from '@components/landing/about';
 
 const emendozaQuery = groq`
 *[_type == "author" && slug.current == "emendoza"] {
@@ -21,18 +20,21 @@ const emendozaQuery = groq`
 }
 `;
 
-export const getStaticProps = async ({ params, preview = false }) {
+export const getStaticProps: GetStaticProps = async (context) => {
+  const { preview = false } = context;
   const emendoza = await getClient(preview).fetch(emendozaQuery);
 
   return {
     props: {
       preview,
-      data: { emendoza },
-    }
-  }
-}
+      userData: { emendoza },
+    },
+  };
+};
 
-const Home: NextPage = () => {
+const Home: NextPage = (props) => {
+  const { preview, userData } = props;
+
   return (
     <>
       <Head>
