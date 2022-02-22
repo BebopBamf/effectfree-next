@@ -1,41 +1,57 @@
-import Container from 'react-bootstrap/Container';
-import BSNavbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
+import NLink from 'next/link';
+import {
+  Box,
+  Container,
+  Flex,
+  Spacer,
+  HStack,
+  Link as CLink,
+} from '@chakra-ui/react';
 
 type LinkProps = {
   to: string;
-  name: string;
+  children: string;
 };
 
 const Link = (props: LinkProps) => {
-  const { to, name } = props;
+  const { to, children } = props;
 
   return (
-    <Nav.Item className="mx-0 mx-lg-1" as="li">
-      <Nav.Link className="text-uppercase py-3 px-0 px-lg-3 rounded" href={to}>
-        {name}
-      </Nav.Link>
-    </Nav.Item>
+    <NLink href={to} passHref>
+      <CLink>{children}</CLink>
+    </NLink>
   );
 };
 
+const PageLinks = () => (
+  <HStack spacing="4">
+    <Link to="/">Home</Link>
+    <Link to="/portfolio">Portfolio</Link>
+    <Link to="/blog">Blog</Link>
+  </HStack>
+);
+
+const HomeLinks = () => (
+  <HStack spacing="4">
+    <Link to="/#about">About</Link>
+    <Link to="/#authors">Authors</Link>
+  </HStack>
+);
+
+const Brand = () => <Link to="/">Effect Free</Link>;
+
 const Navbar = () => (
-  <BSNavbar id="mainNav" expand="lg" bg="secondary" variant="dark" fixed="top">
-    <Container>
-      <BSNavbar.Brand href="#home" className="text-uppercase">
-        effect free
-      </BSNavbar.Brand>
-      <BSNavbar.Toggle aria-controls="navbarResponsive" />
-      <BSNavbar.Collapse id="navbarResponsive">
-        <Nav className="ms-auto" as="ul">
-          <Link to="#about" name="About" />
-          <Link to="#blog" name="Blog" />
-          <Link to="#portfolio" name="Portfolio" />
-          <Link to="#resume" name="Resume" />
-        </Nav>
-      </BSNavbar.Collapse>
+  <Box bg="nav.800">
+    <Container maxW="container.xl">
+      <Flex p="4">
+        <PageLinks />
+        <Spacer />
+        <Brand />
+        <Spacer />
+        <HomeLinks />
+      </Flex>
     </Container>
-  </BSNavbar>
+  </Box>
 );
 
 export default Navbar;

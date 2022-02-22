@@ -1,14 +1,15 @@
 import type { NextPage, GetStaticProps } from 'next';
 import Head from 'next/head';
+import { Heading } from '@chakra-ui/react';
+/*
 import { groq } from 'next-sanity';
 
 import type { Author } from '@sanity/schema';
 import { getClient } from '@sanity/sanity.server';
+*/
 
 import Navbar from '@components/navbar';
-import Banner from '@components/landing/banner';
-import About from '@components/landing/about';
-
+/*
 const emendozaQuery = groq`
 *[_type == "author" && slug.current == "emendoza"] {
   slug,
@@ -37,24 +38,18 @@ export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
 type HomeProps = {
   data: Author;
 };
+*/
 
-const Home: NextPage<HomeProps> = ({ data }) => {
-  const { name, description, slug } = data;
+const Home: NextPage = () => (
+  <>
+    <Head>
+      <title>Effect Free</title>
+      <meta name="description" content="Effect Free site homepage" />
+      <link rel="icon" href="/favicon.ico" />
+    </Head>
 
-  return (
-    <>
-      <Head>
-        <title>Effect Free</title>
-        <meta name="description" content="Homepage of the effectfree blog" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <Heading>To Be Built...</Heading>
+  </>
+);
 
-      <div className="home">
-        <Navbar />
-        <Banner authorName={name} description={description} slug={slug} />
-        <About />
-      </div>
-    </>
-  );
-};
 export default Home;
