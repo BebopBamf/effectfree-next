@@ -35,8 +35,12 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 In the future I have certain tasks I would like to complete.
 
 - [x] Sanity Schema
-- [] Static Type Generation with sanity-codegen
-- [] sanity-codegen client integration
-- [] Content Pages
-- [] Design/Content Structure
+- [x] Static Type Generation with sanity-codegen
+- [ ] Pretty AF Chakra theme
+- [ ] Responsive Navbar with Chakra
+- [ ] Sanity Homepage Content Singleton
+- [ ] Homepage Layout
+- [ ] Blog Homepage Layout
+- [ ] Portfolio Homepage Layout
+- [ ] Design/Content Structure
 
